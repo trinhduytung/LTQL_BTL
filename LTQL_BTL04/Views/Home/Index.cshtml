@@ -1,0 +1,22 @@
+﻿@model  IEnumerable<LTQL_BTL04.Models.MatHang>
+@using LTQL_BTL04.Models
+@using System.Linq
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3" style="background-color:lightgreen;margin-top:5px;text-align:center;">
+            <h3>@Html.DisplayFor(modelItem => item.TenMH) </h3>
+            @Html.Image("../" + item.HinhAnh, "alt", "200")<br />
+            @Html.DisplayFor(modelItem => item.DonGia)<br />
+            <a class="btn btn-info btn-sm" href="@Url.Action("Details", "MatHangs", new {id = item.MaMH})">
+                Xem chi tiết
+            </a>
+        </div>
+    }
+</div>
